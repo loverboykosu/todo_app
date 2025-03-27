@@ -1,13 +1,13 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-
+import Todo from "./components/Todo.jsx";
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1>hello</h1>
+      <Todo />
     </>
   );
 }
