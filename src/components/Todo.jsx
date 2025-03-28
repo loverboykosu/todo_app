@@ -25,6 +25,7 @@ const Todo = () => {
             type="text"
             placeholder="Add task form"
             onChange={getChange}
+            value={input}
           />
           <button
             onClick={addList}
