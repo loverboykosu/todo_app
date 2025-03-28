@@ -9,7 +9,6 @@ const Todo = () => {
   const addList = () => {
     setIsAdd(true);
     setTodoList([...todoList, input]);
-    console.log(todoList);
     setInput("");
   };
   return (
@@ -38,7 +37,7 @@ const Todo = () => {
           <ul>
             {isAdd
               ? todoList.map((element) => {
-                  return <li>{element}</li>;
+                  return <li key={element}>{element}</li>;
                 })
               : null}
           </ul>
