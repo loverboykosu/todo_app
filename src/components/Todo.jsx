@@ -11,6 +11,10 @@ const Todo = () => {
     setTodoList([...todoList, input]);
     setInput("");
   };
+  const pushReset = () => {
+    setIsAdd(false);
+    setTodoList([]);
+  };
   return (
     <>
       <div>
@@ -58,7 +62,10 @@ const Todo = () => {
                 </tbody>
               </table>
               <div className="absolute -bottom-10 right-0">
-                <button className="bg-gray-900 text-white p-1 rounded">
+                <button
+                  onClick={pushReset}
+                  className="bg-gray-900 text-white p-1 rounded"
+                >
                   Reset
                 </button>
               </div>
