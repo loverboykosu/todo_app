@@ -33,14 +33,26 @@ const Todo = () => {
             Add
           </button>
         </div>
-        <div>
-          <ul>
-            {isAdd
-              ? todoList.map((element) => {
-                  return <li key={element}>{element}</li>;
-                })
-              : null}
-          </ul>
+        <div className="mt-4 flex justify-center">
+          <table className="border-collapse border border-gray-400 ...">
+            <thead className=" bg-gray-400">
+              <tr>
+                <th className="border border-gray-300 px-4">Index</th>
+                <th className="border border-gray-300 px-4">Task name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {isAdd &&
+                todoList.map((element, index) => {
+                  return (
+                    <tr key={element}>
+                      <td className="border border-gray-300">{index + 1}</td>
+                      <td className="border border-gray-300">{element}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
         </div>
       </div>
     </>
