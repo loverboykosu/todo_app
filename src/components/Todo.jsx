@@ -36,26 +36,33 @@ const Todo = () => {
 
         {isAdd && (
           <div className="mt-4 flex justify-center">
-            <table className="border-collapse border border-gray-400 ...">
-              <thead className=" bg-gray-400">
-                <tr>
-                  <th className="border border-gray-300 px-4">Index</th>
-                  <th className="border border-gray-300 px-4">Task name</th>
-                </tr>
-              </thead>
-              <tbody>
-                {todoList.map((element, index) => {
-                  return (
-                    <tr key={index}>
-                      <td className="border border-gray-300 text-right pr-4">
-                        {index + 1}
-                      </td>
-                      <td className="border border-gray-300">{element}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="relative">
+              <table className="border-collapse border border-gray-400">
+                <thead className="bg-gray-400">
+                  <tr>
+                    <th className="border border-gray-300 px-4">Index</th>
+                    <th className="border border-gray-300 px-4">Task name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {todoList.map((element, index) => {
+                    return (
+                      <tr key={index}>
+                        <td className="border border-gray-300 text-right pr-4">
+                          {index + 1}
+                        </td>
+                        <td className="border border-gray-300">{element}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              <div className="absolute -bottom-10 right-0">
+                <button className="bg-gray-900 text-white p-1 rounded">
+                  Reset
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
