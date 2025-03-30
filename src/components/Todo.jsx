@@ -29,8 +29,18 @@ const Todo = () => {
         </h1>
 
         <div className="flex justify-center mt-4">
+          {/* ドロップダウンの実装 */}
+          <div className="p-2 text-center text-black rounded border-1 border-solid">
+            <button onClick={changeOpenState}>Priority</button>
+            {isOpen && (
+              <>
+                <p>hello</p>
+                <p>hello</p>
+              </>
+            )}
+          </div>
           <input
-            className="border-2 border-solid"
+            className="ml-4 border-2 border-solid"
             type="text"
             placeholder="Add task form"
             onChange={getChange}
@@ -78,17 +88,6 @@ const Todo = () => {
               </div>
             </div>
           </div>
-        )}
-      </div>
-
-      {/* ドロップダウンの実装 */}
-      <div>
-        <button onClick={changeOpenState}>open</button>
-        {isOpen && (
-          <>
-            <p>hello</p>
-            <p>hello</p>
-          </>
         )}
       </div>
     </>
