@@ -1,17 +1,14 @@
 import { useState } from "react";
+import { MdPriorityHigh } from "react-icons/md";
 const Todo = () => {
   const [todoList, setTodoList] = useState([]);
   const [input, setInput] = useState("");
   const [isAdd, setIsAdd] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const priorities = ["H", "M", "L"];
   const getChange = (e) => {
     setInput(e.target.value);
   };
-  const changeOpenState = () => {
-    setIsOpen((prev) => {
-      return !prev;
-    });
-  };
+
   const addList = () => {
     setIsAdd(true);
     setTodoList([...todoList, input]);
@@ -31,13 +28,16 @@ const Todo = () => {
         <div className="flex justify-center mt-4">
           {/* ドロップダウンの実装 */}
           <div className="p-2 text-center text-black rounded border-1 border-solid">
-            <button onClick={changeOpenState}>Priority</button>
-            {isOpen && (
-              <>
-                <p>hello</p>
-                <p>hello</p>
-              </>
-            )}
+            <select>
+              <option value="">Priority</option>
+              {priorities.map((priority) => {
+                return (
+                  <option value={priority} key={priority}>
+                    {priority}
+                  </option>
+                );
+              })}
+            </select>
           </div>
           <input
             className="ml-4 border-2 border-solid"
