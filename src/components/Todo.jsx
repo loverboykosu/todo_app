@@ -3,8 +3,14 @@ const Todo = () => {
   const [todoList, setTodoList] = useState([]);
   const [input, setInput] = useState("");
   const [isAdd, setIsAdd] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const getChange = (e) => {
     setInput(e.target.value);
+  };
+  const changeOpenState = () => {
+    setIsOpen((prev) => {
+      return !prev;
+    });
   };
   const addList = () => {
     setIsAdd(true);
@@ -30,6 +36,7 @@ const Todo = () => {
             onChange={getChange}
             value={input}
           />
+
           <button
             onClick={addList}
             className="border-2 border-solid rounded bg-gray-700 text-white p-1"
@@ -71,6 +78,17 @@ const Todo = () => {
               </div>
             </div>
           </div>
+        )}
+      </div>
+
+      {/* ドロップダウンの実装 */}
+      <div>
+        <button onClick={changeOpenState}>open</button>
+        {isOpen && (
+          <>
+            <p>hello</p>
+            <p>hello</p>
+          </>
         )}
       </div>
     </>
