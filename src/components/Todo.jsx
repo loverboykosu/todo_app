@@ -4,6 +4,7 @@ const Todo = () => {
   const [todoList, setTodoList] = useState([]);
   const [input, setInput] = useState("");
   const [isAdd, setIsAdd] = useState(false);
+  const [priority, setPriority] = useState("");
   const priorities = ["H", "M", "L"];
   const getChange = (e) => {
     setInput(e.target.value);
@@ -13,10 +14,15 @@ const Todo = () => {
     setIsAdd(true);
     setTodoList([...todoList, input]);
     setInput("");
+    setPriority("");
   };
   const pushReset = () => {
     setIsAdd(false);
     setTodoList([]);
+    setPriority("");
+  };
+  const handlePriorityChange = (e) => {
+    setPriority(e.target.value);
   };
   return (
     <>
@@ -28,7 +34,7 @@ const Todo = () => {
         <div className="flex justify-center mt-4">
           {/* ドロップダウンの実装 */}
           <div className="p-2 text-center text-black rounded border-1 border-solid">
-            <select>
+            <select value={priority} onChange={handlePriorityChange}>
               <option value="">Priority</option>
               {priorities.map((priority) => {
                 return (
