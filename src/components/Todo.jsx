@@ -5,6 +5,7 @@ const Todo = () => {
   const [input, setInput] = useState("");
   const [isAdd, setIsAdd] = useState(false);
   const [priority, setPriority] = useState("");
+  const [priorityList, setPriorityList] = useState([]);
   const priorities = ["H", "M", "L"];
   const getChange = (e) => {
     setInput(e.target.value);
@@ -13,6 +14,7 @@ const Todo = () => {
   const addList = () => {
     setIsAdd(true);
     setTodoList([...todoList, input]);
+    setPriorityList([...priorityList, priority]);
     setInput("");
     setPriority("");
   };
@@ -68,6 +70,7 @@ const Todo = () => {
                 <thead className="bg-gray-400">
                   <tr>
                     <th className="border border-gray-300 px-4">Index</th>
+                    <th className="border border-gray-300 px-4">Priority</th>
                     <th className="border border-gray-300 px-4">Task name</th>
                   </tr>
                 </thead>
@@ -75,8 +78,11 @@ const Todo = () => {
                   {todoList.map((element, index) => {
                     return (
                       <tr key={index}>
-                        <td className="border border-gray-300 text-right pr-4">
+                        <td className="border border-gray-300 text-center">
                           {index + 1}
+                        </td>
+                        <td className="border border-gray-300 text-center">
+                          {priorityList[index]}
                         </td>
                         <td className="border border-gray-300">{element}</td>
                       </tr>
