@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { MdPriorityHigh } from "react-icons/md";
 const Todo = () => {
   const [todoList, setTodoList] = useState([]);
   const [input, setInput] = useState("");
