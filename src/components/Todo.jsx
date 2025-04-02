@@ -11,16 +11,21 @@ const Todo = () => {
   };
 
   const addList = () => {
-    setIsAdd(true);
-    setTodoList([...todoList, input]);
-    setPriorityList([...priorityList, priority]);
-    setInput("");
-    setPriority("");
+    if (priority && input) {
+      setIsAdd(true);
+      setTodoList([...todoList, input]);
+      setPriorityList([...priorityList, priority]);
+      setInput("");
+      setPriority("");
+    } else {
+      window.alert("Priorityとタスクを入力してください");
+    }
   };
   const pushReset = () => {
     setIsAdd(false);
     setTodoList([]);
     setPriority("");
+    setInput("");
   };
   const handlePriorityChange = (e) => {
     setPriority(e.target.value);
