@@ -6,6 +6,7 @@ const Todo = () => {
   const [priority, setPriority] = useState("");
   const [priorityList, setPriorityList] = useState([]);
   const priorities = ["H", "M", "L"];
+  const [status, setStatus] = useState("");
   const getChange = (e) => {
     setInput(e.target.value);
   };
@@ -76,6 +77,7 @@ const Todo = () => {
                     <th className="border border-gray-300 px-4">Index</th>
                     <th className="border border-gray-300 px-4">Priority</th>
                     <th className="border border-gray-300 px-4">Task name</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -89,6 +91,11 @@ const Todo = () => {
                           {priorityList[index]}
                         </td>
                         <td className="border border-gray-300">{element}</td>
+                        <td>
+                          <div className="flex justify-center">
+                            <input type="checkbox" />
+                          </div>
+                        </td>
                       </tr>
                     );
                   })}
