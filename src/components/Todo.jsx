@@ -6,7 +6,7 @@ const Todo = () => {
   const [priority, setPriority] = useState("");
   const [priorityList, setPriorityList] = useState([]);
   const priorities = ["H", "M", "L"];
-  const [status, setStatus] = useState("");
+  const [isStatus, setIsStatus] = useState(false);
   const getChange = (e) => {
     setInput(e.target.value);
   };
@@ -18,6 +18,7 @@ const Todo = () => {
       setPriorityList([...priorityList, priority]);
       setInput("");
       setPriority("");
+      setIsStatus(true);
     } else {
       window.alert("Priorityとタスクを入力してください");
     }
@@ -91,10 +92,13 @@ const Todo = () => {
                           {priorityList[index]}
                         </td>
                         <td className="border border-gray-300">{element}</td>
-                        <td>
-                          <div className="flex justify-center">
+                        <td className="p-2">
+                          {isStatus && (
+                            <p className="bg-sky-300 rounded text-white">New</p>
+                          )}
+                          {/* <div className="flex justify-center">
                             <input type="checkbox" />
-                          </div>
+                          </div> */}
                         </td>
                       </tr>
                     );
